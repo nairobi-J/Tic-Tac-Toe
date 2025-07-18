@@ -7,6 +7,7 @@ let inputClicked = null
 const wholeBoard = document.getElementById('board')
 const board = document.querySelectorAll('.grid')
 const result = document.getElementById('res')
+const newGame = document.getElementById('new-game')
 board.forEach((cell) =>{
     cell.addEventListener('click' , () => {
         cellClicked = cell.getAttribute('id');
@@ -127,6 +128,9 @@ const checkWin = (filledx, who) => {
 
         if(wholeBoard){
              wholeBoard.classList.add('game-over'); 
+             newGame.classList.remove('hide')
+             newGame.addEventListener('click', resetGame);
+
         }
         
 }
@@ -135,4 +139,15 @@ const checkWin = (filledx, who) => {
     }
  }
 
+}
+
+const resetGame = () => {
+    board.forEach(cell => {
+        newGame.classList.add('hide');
+        cell.textContent = "";
+        result.textContent = "";
+        wholeBoard.classList.remove('game-over');
+        d = 0;
+
+    })
 }
