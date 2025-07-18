@@ -24,7 +24,7 @@ body{
     align-items: center;
     justify-content: center;
   
-    padding-top: 150px;
+    padding-top: 120px;
 }
 
 .grid, .in{
@@ -41,4 +41,17 @@ body{
 .game-over{
     opacity: 0.4;
     pointer-events: none;
+}
+
+button{
+    background: rgb(61, 125, 174);
+    width: 100px;
+    height: 50px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: double;
+}
+
+.hide{
+    opacity: 0.0;
 }

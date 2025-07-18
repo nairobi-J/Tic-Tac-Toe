@@ -20,10 +20,16 @@ board.forEach((cell) =>{
 
 const play = (cellClicked) => {
     console.log(cellClicked);
-     
-    draw(cellClicked);
-     check();
-    computer();
+     const cellAddress = document.getElementById(cellClicked);
+     if(cellAddress && cellAddress.textContent === '') {
+        draw(cellClicked); 
+         
+        if(result.textContent === "") 
+        {computer();}
+    }
+     else alert("please choose another cell")
+    
+    
 }
 
 let d = 0;
@@ -51,15 +57,13 @@ const draw = (cellClicked) => {
 
         if(d%2 === 0){
             cellAddress.textContent = "X";
-             //check();
+             
         }
         else cellAddress.textContent = "O";
          check();
         d++;
-        if(d == 9) {
-             check();
-
-            if(result && result.textContent === ""){
+        if(d == 9 && result.textContent === "") {
+             if(result && result.textContent === ""){
                 result.textContent = "It's a Draw! Reload to Play the game";
                 if(wholeBoard){
                     wholeBoard.classList.add('game-over')
@@ -91,6 +95,7 @@ const computer = () =>{
     const computerCell = emptyCells[index];
      
     draw(computerCell);
+    
 }
 
 
